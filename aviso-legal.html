@@ -41,76 +41,13 @@ color:#4a4238;
 margin-bottom:20px;
 }
 
-a{
-color:#b8915a;
-text-decoration:none;
-}
-
-a:hover{
-text-decoration:underline;
-}
-
-/* NAVBAR */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-right:0;
-background:#f8f5f0;
-padding:18px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(0,0,0,0.05);
-}
-
-.nav-logo{
-font-family:'Cormorant Garamond',serif;
-font-size:18px;
-letter-spacing:0.2em;
-text-transform:uppercase;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-font-size:12px;
-letter-spacing:0.2em;
-text-transform:uppercase;
-}
-
-/* FOOTER */
-
-.footer{
-background:#1a1612;
-color:#f8f5f0;
-padding:40px;
-text-align:center;
-font-size:13px;
-margin-top:80px;
-}
-
 </style>
 
 </head>
 
 <body>
 
-<header class="navbar">
-
-<div class="nav-logo">
-Souza Lucena
-</div>
-
-<div class="nav-links">
-<a href="/">Início</a>
-<a href="/#sobre">Sobre</a>
-<a href="/#atuacao">Atuação</a>
-<a href="/#contato">Contato</a>
-</div>
-
-</header>
+<div id="header-placeholder"></div>
 
 <div class="container">
 
@@ -138,13 +75,23 @@ relativas à publicidade na advocacia.
 
 </div>
 
-<footer class="footer">
+<div id="footer-placeholder"></div>
 
-© 2026 Souza Lucena & Advogados Associados  
-<br>
-Todos os direitos reservados
+<script>
 
-</footer>
+fetch("header.html")
+.then(res => res.text())
+.then(data => {
+document.getElementById("header-placeholder").innerHTML = data;
+});
+
+fetch("footer.html")
+.then(res => res.text())
+.then(data => {
+document.getElementById("footer-placeholder").innerHTML = data;
+});
+
+</script>
 
 </body>
 </html>
