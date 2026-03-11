@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<meta property="og:title" content="Souza Lucena & Advogados Associados">
+<meta property="og:description" content="Escritório de advocacia em Recife com atendimento personalizado e excelência jurídica.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://souzalucena.com.br">
+<meta property="og:image" content="https://souzalucena.com.br/preview.jpg">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Souza Lucena & Advogados Associados — Escritório de advocacia em Recife. Atendimento personalizado com excelência jurídica." />
+<meta name="description" content="Souza Lucena & Advogados Associados — Escritório de advocacia em Recife especializado em direito à saúde, civil, trabalhista, empresarial e previdenciário. Atendimento jurídico personalizado.">
 <title>Souza Lucena & Advogados Associados</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1072,6 +1077,26 @@ section.sec { padding: 110px 6%; }
   .hero-btns { flex-direction: column; align-items: flex-start; }
 }
 </style>
+<script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "LegalService",
+   "name": "Souza Lucena & Advogados Associados",
+   "url": "https://souzalucena.com.br",
+   "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Rua da Hora, 175",
+     "addressLocality": "Recife",
+     "addressRegion": "PE",
+     "postalCode": "52020-000",
+     "addressCountry": "BR"
+   },
+   "areaServed": "Brasil",
+   "sameAs": [
+     "https://www.instagram.com/souzalucena.adv"
+   ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1451,12 +1476,22 @@ section.sec { padding: 110px 6%; }
     <div class="ft-logo-m">Souza Lucena</div>
     <span class="ft-logo-s">&amp; Advogados Associados</span>
   </div>
+
   <p class="ft-copy">
-    © 2026 Souza Lucena &amp; Advogados Associados. Todos os direitos reservados.<br />
-    <span style="font-size:10px;opacity:0.6;">OAB/PE — Recife, Pernambuco</span>
+    © 2026 Souza Lucena &amp; Advogados Associados. Todos os direitos reservados.<br>
+    <span style="font-size:10px;opacity:0.6;">
+      OAB/PE — Recife, Pernambuco
+    </span><br>
+
+    <span style="font-size:10px;opacity:0.6;">
+      <a href="politica-de-privacidade.html">Política de Privacidade</a> |
+      <a href="termos-de-uso.html">Termos de Uso</a> |
+      <a href="aviso-legal.html">Aviso Legal</a>
+    </span>
   </p>
+
   <div class="ft-ig">
-    <a href="https://www.instagram.com/souzalucena.adv?igsh=MWV6cTY0aGJsdDM0" target="_blank">
+    <a href="https://www.instagram.com/souzalucena.adv" target="_blank">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5"/>
@@ -1523,5 +1558,54 @@ const navIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 sections.forEach(s => navIO.observe(s));
 </script>
+<div id="cookie-banner">
+  Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando você concorda com nossa 
+  <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+  <button onclick="acceptCookies()">Aceitar</button>
+  </div>
+  
+  <style>
+  #cookie-banner{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#1a1612;
+  color:#f8f5f0;
+  padding:14px;
+  text-align:center;
+  font-size:13px;
+  z-index:99999;
+  border-top:1px solid rgba(184,145,90,0.25);
+  }
+  
+  #cookie-banner a{
+  color:#cda96e;
+  }
+  
+  #cookie-banner button{
+  background:#7a1c18;
+  color:white;
+  border:none;
+  padding:8px 16px;
+  margin-left:10px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:12px;
+  }
+  </style>
+  
+  <script>
+  function acceptCookies(){
+  localStorage.setItem("cookiesAccepted","true");
+  document.getElementById("cookie-banner").style.display="none";
+  }
+  
+  window.addEventListener("load",function(){
+  if(localStorage.getItem("cookiesAccepted")){
+  document.getElementById("cookie-banner").style.display="none";
+  }
+  });
+  </script>
 </body>
 </html>
