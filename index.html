@@ -1323,6 +1323,57 @@ section.sec { padding: 110px 6%; }
   </div>
 </section>
 
+<!-- ═══════════ NOSSA EQUIPE ═══════════ -->
+<section class="sec equipe" id="equipe">
+  <div class="equipe-inner">
+
+    <div class="equipe-header reveal">
+      <div class="sec-label"><span>Excelência Jurídica</span></div>
+      <h2 class="sec-h2">Nossa <em>Equipe</em></h2>
+      <div class="equipe-ornament"><span></span></div>
+      <p class="equipe-subtitle">Advogadas comprometidas com a defesa dos seus direitos, unindo rigor técnico, ética e atendimento humano.</p>
+    </div>
+
+    <div class="equipe-cards">
+
+      <!-- Dyana Lucena -->
+      <div class="membro reveal">
+        <div class="membro-foto-wrap">
+          <div class="membro-foto-ring-outer"></div>
+          <div class="membro-foto-ring"></div>
+          <!-- Substitua a div abaixo por: <img src="foto-dyana.jpg" alt="Dra. Dyana Lucena" class="membro-foto"> -->
+          <img src="dyanalucena.jpeg" alt="Dra. Dyana Lucena" class="membro-foto">
+        </div>
+        <p class="membro-nome">Dra. Dyana Lucena</p>
+        <p class="membro-oab">OAB/PE 58.367</p>
+        <div class="membro-divider"></div>
+        <p class="membro-cargo">
+          <strong>Sócia-Fundadora</strong>
+          Especialista em Direito Trabalhista<br />e Direito do Consumidor
+        </p>
+      </div>
+
+      <!-- Ana Cláudia Souza -->
+      <div class="membro reveal">
+        <div class="membro-foto-wrap">
+          <div class="membro-foto-ring-outer"></div>
+          <div class="membro-foto-ring"></div>
+          <!-- Substitua a div abaixo por: <img src="foto-anaclaudia.jpg" alt="Dra. Ana Cláudia Souza" class="membro-foto"> -->
+          <img src="anaclaudia.jpeg" alt="Dra. Ana Cláudia Souza" class="membro-foto">
+        </div>
+        <p class="membro-nome">Dra. Ana Cláudia Souza</p>
+        <p class="membro-oab">OAB/PE 54.152</p>
+        <div class="membro-divider"></div>
+        <p class="membro-cargo">
+          <strong>Sócia-Fundadora</strong>
+          Especialista em Direito à Saúde<br />
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ TESTEMUNHOS ═══════════ -->
 <section class="sec testemunhos">
   <div style="max-width:1200px;margin:0 auto;">
@@ -1593,6 +1644,16 @@ sections.forEach(s => navIO.observe(s));
   cursor:pointer;
   font-size:12px;
   }
+
+  .membro-foto{
+width:160px;
+height:160px;
+object-fit:cover;
+border-radius:50%;
+position:absolute;
+top:0;
+left:0;
+}
   </style>
   
   <script>
