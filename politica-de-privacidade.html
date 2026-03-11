@@ -23,17 +23,22 @@ margin:0;
 line-height:1.9;
 }
 
+/* CONTAINER */
+
 .container{
-max-width:900px;
+max-width:760px;
 margin:auto;
-padding:140px 24px 80px;
+padding:160px 24px 100px;
 }
+
+/* TÍTULOS */
 
 h1{
 font-family:'Cormorant Garamond',serif;
-font-size:48px;
+font-size:46px;
 font-weight:400;
-margin-bottom:20px;
+margin-bottom:25px;
+text-align:center;
 }
 
 h2{
@@ -44,6 +49,7 @@ font-weight:500;
 
 p{
 color:#4a4238;
+margin-bottom:18px;
 }
 
 ul{
@@ -53,12 +59,52 @@ padding-left:20px;
 color:#4a4238;
 }
 
-a{
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+background:#f8f5f0;
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.nav-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:18px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+font-size:12px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+}
+
+/* FOOTER */
+
+.footer{
+background:#1a1612;
+color:#f8f5f0;
+padding:40px;
+text-align:center;
+font-size:13px;
+}
+
+.footer a{
 color:#b8915a;
 text-decoration:none;
 }
 
-a:hover{
+.footer a:hover{
 text-decoration:underline;
 }
 
@@ -68,7 +114,24 @@ text-decoration:underline;
 
 <body>
 
-<div id="header-placeholder"></div>
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="nav-logo">
+Souza Lucena
+</div>
+
+<div class="nav-links">
+<a href="index.html">Início</a>
+<a href="index.html#sobre">Sobre</a>
+<a href="index.html#atuacao">Atuação</a>
+<a href="index.html#contato">Contato</a>
+</div>
+
+</header>
+
+<!-- CONTEÚDO -->
 
 <div class="container">
 
@@ -128,23 +191,23 @@ correção ou exclusão de seus dados pessoais.
 
 </div>
 
-<div id="footer-placeholder"></div>
+<!-- FOOTER -->
 
-<script>
+<footer class="footer">
 
-fetch("header.html")
-.then(res => res.text())
-.then(data => {
-document.getElementById("header-placeholder").innerHTML = data;
-});
+<p>
+© 2026 Souza Lucena & Advogados Associados. Todos os direitos reservados.
+</p>
 
-fetch("footer.html")
-.then(res => res.text())
-.then(data => {
-document.getElementById("footer-placeholder").innerHTML = data;
-});
+<p style="margin-top:10px; font-size:12px; opacity:0.8;">
 
-</script>
+<a href="politica-de-privacidade.html">Política de Privacidade</a> |
+<a href="termos-de-uso.html">Termos de Uso</a> |
+<a href="aviso-legal.html">Aviso Legal</a>
+
+</p>
+
+</footer>
 
 </body>
 </html>
