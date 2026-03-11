@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Souza Lucena & Advogados Associados — Escritório de advocacia em Recife. Atendimento personalizado com excelência jurídica." />
+<title>Souza Lucena & Advogados Associados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f8f5f0;
+  --cream2: #f2ede6;
+  --white: #ffffff;
+  --ink: #1a1612;
+  --ink2: #2e2820;
+  --ink3: #4a4238;
+  --grey: #8a7f74;
+  --grey2: #b5ad9e;
+
+  --gold: #b8915a;
+  --gold-l: #cda96e;
+  --gold-d: #9a7440;
+  --gold-pale: rgba(184,145,90,0.12);
+  --gold-palest: rgba(184,145,90,0.06);
+
+  --crimson: #7a1c18;
+  --crimson-l: #8e2420;
+
+  --border: rgba(26,22,18,0.09);
+  --border-gold: rgba(184,145,90,0.28);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+::selection { background: var(--gold); color: var(--white); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold-d); }
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 6%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, border-bottom 0.5s ease;
+}
+.navbar.scrolled {
+  background: rgba(248,245,240,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.nav-logo-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.nav-logo-sub {
+  font-size: 7.5px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  transition: color 0.25s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0; width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.btn-nav-cta {
+  padding: 9px 22px !important;
+  border: 1px solid var(--crimson) !important;
+  color: var(--crimson) !important;
+  font-weight: 500 !important;
+  transition: background 0.25s, color 0.25s !important;
+  letter-spacing: 0.15em !important;
+}
+.btn-nav-cta:hover {
+  background: var(--crimson) !important;
+  color: var(--white) !important;
+}
+.btn-nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+/* Architectural grid lines */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(184,145,90,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184,145,90,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Radial light bloom */
+.hero-bloom {
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(184,145,90,0.14) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.hero-bloom2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(122,28,24,0.06) 0%, transparent 70%);
+  bottom: 0; left: 10%;
+  pointer-events: none;
+}
+
+/* Vertical rule */
+.hero-rule {
+  position: absolute;
+  left: 6%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-d) 30%, var(--gold-d) 70%, transparent);
+  opacity: 0.25;
+}
+
+/* Large decorative text */
+.hero-deco-text {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(120px, 18vw, 260px);
+  font-weight: 700;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(184,145,90,0.07);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 6% 0 calc(6% + 40px);
+  max-width: 780px;
+  animation: heroIn 1.2s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold));
+}
+.hero-eyebrow span {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 82px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-h1 strong {
+  font-weight: 600;
+}
+
+.hero-p {
+  font-size: clamp(13.5px, 1.3vw, 15px);
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--grey);
+  max-width: 440px;
+  margin-bottom: 48px;
+  letter-spacing: 0.02em;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: var(--crimson);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px rgba(122,28,24,0.25);
+}
+.btn-primary:hover {
+  background: var(--crimson-l);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(122,28,24,0.3);
+}
+.btn-primary svg { transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: 1px solid var(--border-gold);
+  color: var(--ink3);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-palest);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: calc(6% + 40px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+}
+.scroll-line {
+  width: 1px; height: 52px;
+  background: rgba(184,145,90,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%; left: 0;
+  width: 100%; height: 100%;
+  background: var(--gold);
+  animation: scrollAnim 2.2s ease infinite;
+}
+.hero-scroll span {
+  font-size: 8.5px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  writing-mode: vertical-rl;
+}
+
+/* ── SECTION BASE ── */
+section.sec { padding: 110px 6%; }
+
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.sec-label::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.sec-label span {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.sec-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.sec-h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SOBRE ── */
+.sobre {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative corner element */
+.sobre::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle at top right, rgba(184,145,90,0.07), transparent 70%);
+  pointer-events: none;
+}
+
+.sobre-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.sobre-text .sec-h2 { margin-bottom: 30px; }
+.sobre-text p {
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--grey);
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+.sobre-text p strong { font-weight: 500; color: var(--ink2); }
+.sobre-text .btn-primary { margin-top: 16px; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.stat-box {
+  background: var(--cream);
+  padding: 40px 32px;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.stat-box::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.stat-box:hover { background: var(--cream2); }
+.stat-box:hover::before { width: 100%; }
+
+.stat-n {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.stat-n em {
+  font-style: normal;
+  color: var(--gold);
+}
+.stat-l {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* ── ÁREAS ── */
+.areas {
+  background: var(--cream);
+  position: relative;
+}
+
+.areas-top {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+.areas-top-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--grey);
+  max-width: 340px;
+}
+
+.areas-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.area-box {
+  background: var(--cream);
+  padding: 46px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.area-box::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 0;
+  background: var(--gold);
+  transition: height 0.4s ease;
+}
+.area-box:hover { background: var(--white); }
+.area-box:hover::after { height: 100%; }
+
+.area-number {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--gold-d);
+  margin-bottom: 22px;
+  opacity: 0.7;
+}
+.area-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 18px;
+  line-height: 1;
+}
+.area-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+.area-box p {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--grey);
+}
+
+/* ── DIFERENCIAIS ── */
+.difs {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid texture on dark bg */
+.difs::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(184,145,90,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184,145,90,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.difs-deco {
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(120px, 18vw, 240px);
+  font-style: italic;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(184,145,90,0.06);
+  pointer-events: none;
+  user-select: none;
+}
+
+.difs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.difs-inner .sec-label::before { background: var(--gold-d); }
+.difs-inner .sec-h2 {
+  color: var(--cream);
+  margin-bottom: 70px;
+}
+.difs-inner .sec-h2 em { color: var(--gold-l); }
+
+.difs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.dif {
+  position: relative;
+  padding-top: 24px;
+}
+.dif::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+.dif-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: rgba(184,145,90,0.09);
+  line-height: 1;
+  display: block;
+  margin-bottom: 16px;
+}
+.dif h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.dif p {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(248,245,240,0.45);
+}
+
+/* ── TESTEMUNHOS ── */
+.testemunhos {
+  background: var(--cream2);
+  position: relative;
+  overflow: hidden;
+}
+.testemunhos::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 4%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 300px;
+  font-weight: 700;
+  color: rgba(184,145,90,0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.test-grid {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+}
+.test-card {
+  background: var(--cream2);
+  padding: 42px 36px;
+  transition: background 0.3s;
+}
+.test-card:hover { background: var(--white); }
+.test-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+.test-stars span {
+  color: var(--gold);
+  font-size: 13px;
+}
+.test-card blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink2);
+  margin-bottom: 24px;
+}
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.test-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold-d);
+}
+.test-author-info strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.test-author-info span {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--grey);
+}
+
+/* ── CONTATO ── */
+.contato {
+  background: var(--cream);
+  position: relative;
+}
+
+.contato-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.contato-left .sec-h2 { margin-bottom: 22px; }
+.contato-left > p {
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--grey);
+  margin-bottom: 44px;
+}
+
+.clinks { display: flex; flex-direction: column; gap: 1px; }
+
+.clink {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  background: var(--white);
+  border-left: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.2s;
+  position: relative;
+}
+.clink:hover {
+  border-left-color: var(--gold);
+  transform: translateX(4px);
+}
+
+.clink-ico {
+  width: 42px; height: 42px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.clink:hover .clink-ico {
+  background: var(--gold-pale);
+  border-color: var(--border-gold);
+}
+
+.clink-info strong {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 3px;
+}
+.clink-info span {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--ink2);
+}
+
+.clink-arr {
+  margin-left: auto;
+  color: var(--grey2);
+  font-size: 16px;
+  transition: transform 0.25s, color 0.25s;
+}
+.clink:hover .clink-arr {
+  transform: translateX(4px);
+  color: var(--gold);
+}
+
+.addr-block {
+  background: var(--white);
+  padding: 36px;
+  border-top: 2px solid var(--gold);
+  margin-bottom: 1px;
+}
+.addr-block h4 {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 18px;
+}
+.addr-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--ink2);
+}
+.addr-block p em {
+  font-style: italic;
+  color: var(--grey);
+  font-size: 14px;
+}
+
+.map-wrap {
+  width: 100%; height: 220px;
+  overflow: hidden;
+  background: var(--cream2);
+}
+.map-wrap iframe {
+  width: 100%; height: 100%;
+  border: none;
+  filter: sepia(20%) contrast(0.9) brightness(1.05);
+}
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: var(--crimson);
+  padding: 80px 6%;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, transparent 60%);
+}
+.cta-banner-grid {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.25;
+  max-width: 580px;
+}
+.cta-text em { font-style: italic; color: rgba(255,255,255,0.7); }
+
+.btn-cta-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: var(--white);
+  color: var(--crimson);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.25s;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.btn-cta-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--ink);
+  padding: 52px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 6%; right: 6%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,145,90,0.4), transparent);
+}
+
+.ft-logo-m {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.ft-logo-s {
+  font-size: 7.5px;
+  letter-spacing: 0.3em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-top: 5px;
+  display: block;
+}
+
+.ft-copy {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(248,245,240,0.35);
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.ft-ig a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(184,145,90,0.6);
+  border: 1px solid rgba(184,145,90,0.18);
+  padding: 10px 18px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.ft-ig a:hover {
+  color: var(--gold-l);
+  border-color: rgba(184,145,90,0.45);
+}
+
+/* ── MOBILE DRAWER ── */
+.m-overlay {
+  position: fixed; inset: 0;
+  background: rgba(26,22,18,0.7);
+  z-index: 150;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.m-overlay.open { opacity: 1; pointer-events: all; }
+
+.m-drawer {
+  position: fixed;
+  top: 0; right: -100%;
+  width: min(310px, 85vw);
+  height: 100vh;
+  background: var(--ink);
+  border-left: 1px solid rgba(184,145,90,0.15);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 44px;
+  gap: 28px;
+  transition: right 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.m-drawer.open { right: 0; }
+
+.m-drawer a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(248,245,240,0.7);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.m-drawer a:hover { color: var(--gold-l); }
+.m-drawer a::before {
+  content: '';
+  width: 18px; height: 1px;
+  background: var(--gold-d);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.vis { opacity: 1; transform: none; }
+
+/* ── KEYFRAMES ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollAnim {
+  0%   { top: -100%; }
+  100% { top: 200%; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .areas-cards { grid-template-columns: repeat(2, 1fr); }
+  .difs-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .areas-top { flex-direction: column; align-items: flex-start; }
+  .test-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section.sec { padding: 80px 5%; }
+  .hero-content { padding: 0 5% 0 calc(5% + 22px); }
+  .hero-deco-text { display: none; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 52px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .areas-cards { grid-template-columns: 1fr; }
+  .difs-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .contato-grid { grid-template-columns: 1fr; gap: 52px; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+  .footer { flex-direction: column; align-items: flex-start; }
+  .ft-copy { text-align: left; }
+  .test-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .difs-grid { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <a href="#inicio" class="nav-logo">
+    <span class="nav-logo-main">Souza Lucena</span>
+    <span class="nav-logo-sub">&amp; Advogados Associados</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#atuacao">Atuação</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li>
+      <a href="https://outlook.office.com/book/Disponibilidadeparareunio1@SouzaLucena.onmicrosoft.com/?ismsaljsauthenabled"
+         target="_blank" class="btn-nav-cta">Agendar Consulta</a>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="m-overlay" id="mOverlay"></div>
+<nav class="m-drawer" id="mDrawer">
+  <a href="#inicio" onclick="closeMenu()">Início</a>
+  <a href="#sobre" onclick="closeMenu()">Sobre</a>
+  <a href="#atuacao" onclick="closeMenu()">Atuação</a>
+  <a href="#contato" onclick="closeMenu()">Contato</a>
+  <a href="https://outlook.office.com/book/Disponibilidadeparareunio1@SouzaLucena.onmicrosoft.com/?ismsaljsauthenabled"
+     target="_blank" onclick="closeMenu()"
+     style="color:var(--gold-l);margin-top:10px;">
+    Agendar Consulta
+  </a>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="hero-bloom"></div>
+  <div class="hero-bloom2"></div>
+  <div class="hero-rule"></div>
+  <div class="hero-deco-text">Lex</div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-rule"></div>
+      <span>Escritório de Advocacia — Recife, PE</span>
+    </div>
+
+    <h1 class="hero-h1">
+      Soluções Jurídicas<br />
+      com <em>Excelência</em><br />
+      e Comprometimento
+    </h1>
+
+    <p class="hero-p">
+      O escritório Souza Lucena &amp; Advogados Associados atua com ética,
+      técnica e dedicação na defesa dos seus direitos — oferecendo assessoria
+      jurídica personalizada para cada necessidade.
+    </p>
+
+    <div class="hero-btns">
+      <a href="https://outlook.office.com/book/Disponibilidadeparareunio1@SouzaLucena.onmicrosoft.com/?ismsaljsauthenabled"
+         target="_blank" class="btn-primary">
+        Marque seu Atendimento
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="https://api.whatsapp.com/message/FAZULA6FWNP2G1?autoload=1&app_absent=0"
+         target="_blank" class="btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════ SOBRE ═══════════ -->
+<section class="sec sobre" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-text reveal">
+      <div class="sec-label"><span>Quem Somos</span></div>
+      <h2 class="sec-h2">Tradição e <em>Comprometimento</em> Jurídico</h2>
+      <p>
+        O escritório <strong>Souza Lucena &amp; Advogados Associados</strong> é
+        formado por profissionais com sólida formação técnica e ampla experiência
+        nas principais áreas do direito.
+      </p>
+      <p>
+        Acreditamos que cada cliente merece atenção individualizada e estratégias
+        jurídicas construídas para o seu caso. Nossa atuação é pautada pela ética,
+        transparência e busca constante pelos melhores resultados.
+      </p>
+      <p>
+        Sediados no <strong>Edifício MFC Corporate</strong>, no bairro do Espinheiro
+        em Recife, atendemos pessoas físicas e jurídicas em todo o Brasil.
+      </p>
+      <a href="https://api.whatsapp.com/message/FAZULA6FWNP2G1?autoload=1&app_absent=0"
+         target="_blank" class="btn-primary" style="display:inline-flex;margin-top:16px;">
+        Fale Conosco
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="stats-grid reveal">
+      <div class="stat-box">
+        <span class="stat-n">+<em>10</em></span>
+        <span class="stat-l">Anos de Experiência</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-n">+<em>500</em></span>
+        <span class="stat-l">Clientes Atendidos</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-n"><em>100</em>%</span>
+        <span class="stat-l">Dedicação ao Cliente</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-n" style="font-size:32px;"><em>OAB</em></span>
+        <span class="stat-l">Registrado e Regularizado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ÁREAS ═══════════ -->
+<section class="sec areas" id="atuacao">
+  <div class="areas-top reveal">
+    <div>
+      <div class="sec-label"><span>Especialidades</span></div>
+      <h2 class="sec-h2">Áreas de <em>Atuação</em></h2>
+    </div>
+    <p class="areas-top-desc">
+      Assessoria jurídica completa nas principais áreas do direito, com equipe
+      dedicada para cada demanda.
+    </p>
+  </div>
+
+  <div class="areas-cards">
+    <div class="area-box reveal">
+      <span class="area-number">01</span>
+      <span class="area-icon">⚖️</span>
+      <h3>Direito Civil</h3>
+      <p>Contratos, responsabilidade civil, direito de família, sucessões e questões patrimoniais.</p>
+    </div>
+    <div class="area-box reveal">
+      <span class="area-number">02</span>
+      <span class="area-icon">💼</span>
+      <h3>Direito Trabalhista</h3>
+      <p>Reclamações trabalhistas, acordos, defesa de empregados e empregadores, consultoria preventiva.</p>
+    </div>
+    <div class="area-box reveal">
+      <span class="area-number">03</span>
+      <span class="area-icon">🏢</span>
+      <h3>Direito Empresarial</h3>
+      <p>Constituição de empresas, contratos comerciais, fusões, aquisições e recuperação judicial.</p>
+    </div>
+    <div class="area-box reveal">
+      <span class="area-number">04</span>
+      <span class="area-icon">📋</span>
+      <h3>Direito Previdenciário</h3>
+      <p>Aposentadorias, benefícios do INSS, revisões e planejamento previdenciário personalizado.</p>
+    </div>
+    <div class="area-box reveal">
+      <span class="area-number">05</span>
+      <span class="area-icon">🏥</span>
+      <h3>Direito à Saúde</h3>
+      <p>Planos de saúde, negativa de cobertura, medicamentos, internações e indenizações por erro médico.</p>
+    </div>
+    <div class="area-box reveal">
+      <span class="area-number">06</span>
+      <span class="area-icon">🛡️</span>
+      <h3>Direito do Consumidor</h3>
+      <p>Defesa do consumidor, indenizações, contratos abusivos e negativação indevida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DIFERENCIAIS ═══════════ -->
+<section class="sec difs">
+  <div class="difs-deco">Lex</div>
+  <div class="difs-inner">
+    <div class="sec-label reveal"><span>Nossos Valores</span></div>
+    <h2 class="sec-h2 reveal">Por que nos <em>escolher</em></h2>
+
+    <div class="difs-grid">
+      <div class="dif reveal">
+        <span class="dif-num">01</span>
+        <h4>Atendimento Personalizado</h4>
+        <p>Cada cliente recebe atenção exclusiva com estratégias jurídicas moldadas às suas necessidades específicas.</p>
+      </div>
+      <div class="dif reveal">
+        <span class="dif-num">02</span>
+        <h4>Equipe Especializada</h4>
+        <p>Advogados experientes em diversas áreas, atualizados continuamente com legislação e jurisprudência vigentes.</p>
+      </div>
+      <div class="dif reveal">
+        <span class="dif-num">03</span>
+        <h4>Ética e Transparência</h4>
+        <p>Atuação pelos mais altos padrões éticos, com comunicação clara e honesta em cada etapa do processo.</p>
+      </div>
+      <div class="dif reveal">
+        <span class="dif-num">04</span>
+        <h4>Foco em Resultados</h4>
+        <p>Compromisso com prazos e dedicação total para alcançar os melhores resultados para nossos clientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTEMUNHOS ═══════════ -->
+<section class="sec testemunhos">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="sec-label reveal"><span>Depoimentos</span></div>
+    <h2 class="sec-h2 reveal">O que dizem nossos <em>clientes</em></h2>
+  </div>
+  <div class="test-grid reveal">
+    <div class="test-card">
+      <div class="test-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <blockquote>
+        "Profissionalismo exemplar. O escritório cuidou do meu processo com total
+        transparência e obtivemos um resultado excelente. Recomendo com plena confiança."
+      </blockquote>
+      <div class="test-author">
+        <div class="test-avatar">M</div>
+        <div class="test-author-info">
+          <strong>Marcos Andrade</strong>
+          <span>Cliente — Direito Trabalhista</span>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <blockquote>
+        "Atendimento humano e técnico ao mesmo tempo. Me senti amparada em todo o
+        processo, com explicações claras em cada etapa. Equipe de altíssimo nível."
+      </blockquote>
+      <div class="test-author">
+        <div class="test-avatar">C</div>
+        <div class="test-author-info">
+          <strong>Carla Mendonça</strong>
+          <span>Cliente — Direito de Família</span>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <blockquote>
+        "Contratei para abertura da minha empresa e assessoria contratual. Trabalho
+        impecável, com atenção a todos os detalhes. Parceria que pretendo manter."
+      </blockquote>
+      <div class="test-author">
+        <div class="test-avatar">R</div>
+        <div class="test-author-info">
+          <strong>Ricardo Fonseca</strong>
+          <span>Cliente — Direito Empresarial</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BANNER ═══════════ -->
+<div class="cta-banner">
+  <div class="cta-banner-grid"></div>
+  <div class="cta-inner">
+    <p class="cta-text reveal">
+      Pronto para resolver sua questão jurídica?<br />
+      <em>Agende uma consulta e fale com nossos especialistas.</em>
+    </p>
+    <a href="https://outlook.office.com/book/Disponibilidadeparareunio1@SouzaLucena.onmicrosoft.com/?ismsaljsauthenabled"
+       target="_blank" class="btn-cta-white reveal">
+      Agendar Consulta
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════ CONTATO ═══════════ -->
+<section class="sec contato" id="contato">
+  <div class="contato-grid">
+    <div class="contato-left reveal">
+      <div class="sec-label"><span>Contato</span></div>
+      <h2 class="sec-h2">Fale <em>Conosco</em></h2>
+      <p>
+        Estamos prontos para ouvir seu caso e oferecer a melhor orientação jurídica.
+        Entre em contato pelos canais abaixo.
+      </p>
+      <div class="clinks">
+        <a href="https://outlook.office.com/book/Disponibilidadeparareunio1@SouzaLucena.onmicrosoft.com/?ismsaljsauthenabled"
+           target="_blank" class="clink">
+          <div class="clink-ico">📅</div>
+          <div class="clink-info">
+            <strong>Agendamento Online</strong>
+            <span>Marque sua consulta</span>
+          </div>
+          <span class="clink-arr">→</span>
+        </a>
+        <a href="https://api.whatsapp.com/message/FAZULA6FWNP2G1?autoload=1&app_absent=0"
+           target="_blank" class="clink">
+          <div class="clink-ico">💬</div>
+          <div class="clink-info">
+            <strong>WhatsApp</strong>
+            <span>Atendimento via mensagem</span>
+          </div>
+          <span class="clink-arr">→</span>
+        </a>
+        <a href="https://www.instagram.com/souzalucena.adv?igsh=MWV6cTY0aGJsdDM0"
+           target="_blank" class="clink">
+          <div class="clink-ico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
+                 style="color:var(--gold)">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="clink-info">
+            <strong>Instagram</strong>
+            <span>@souzalucena.adv</span>
+          </div>
+          <span class="clink-arr">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="addr-block">
+        <h4>Nosso Endereço</h4>
+        <p>
+          Rua da Hora, nº 175<br />
+          Espinheiro, Recife — PE<br />
+          <em>Edifício MFC Corporate</em>
+        </p>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.559!2d-34.90468!3d-8.04271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18993f12ea3f%3A0xd45afe2d2ae8a4f!2sR.+da+Hora%2C+175+-+Espinheiro%2C+Recife+-+PE!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização Souza Lucena Advogados">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div>
+    <div class="ft-logo-m">Souza Lucena</div>
+    <span class="ft-logo-s">&amp; Advogados Associados</span>
+  </div>
+  <p class="ft-copy">
+    © 2026 Souza Lucena &amp; Advogados Associados. Todos os direitos reservados.<br />
+    <span style="font-size:10px;opacity:0.6;">OAB/PE — Recife, Pernambuco</span>
+  </p>
+  <div class="ft-ig">
+    <a href="https://www.instagram.com/souzalucena.adv?igsh=MWV6cTY0aGJsdDM0" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+      @souzalucena.adv
+    </a>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mDrawer   = document.getElementById('mDrawer');
+const mOverlay  = document.getElementById('mOverlay');
+
+hamburger.addEventListener('click', () => {
+  const open = mDrawer.classList.toggle('open');
+  mOverlay.classList.toggle('open', open);
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mOverlay.addEventListener('click', closeMenu);
+
+function closeMenu() {
+  mDrawer.classList.remove('open');
+  mOverlay.classList.remove('open');
+  hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Scroll reveal with stagger
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('vis'), i * 80);
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => io.observe(el));
+
+// Smooth active nav highlight
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const navIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--gold)' : '';
+      });
+    }
+  });
+}, { threshold: 0.5 });
+sections.forEach(s => navIO.observe(s));
+</script>
+</body>
+</html>
