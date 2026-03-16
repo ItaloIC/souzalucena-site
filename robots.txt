@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://souzalucena.com.br/sitemap.xml
