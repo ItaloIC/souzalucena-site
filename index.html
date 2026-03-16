@@ -680,11 +680,41 @@ font-size:14px;
 line-height:1.9;
 }
 
-.equipe-cards{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:80px;
-margin-top:60px;
+.equipe-cards {
+  display: grid;
+  margin-top: 60px;
+}
+
+/* Sócias: 2 colunas centralizadas */
+.equipe-cards--socias {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 80px;
+}
+
+/* Associadas: 3 colunas lado a lado */
+.equipe-cards--associadas {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+@media (max-width: 900px) {
+  .equipe-cards--socias {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    gap: 50px;
+  }
+  .equipe-cards--associadas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .equipe-cards--associadas {
+    grid-template-columns: 1fr;
+  }
 }
 
 .membro{
@@ -742,13 +772,6 @@ opacity:0.5;
 font-size:13px;
 color:var(--grey);
 line-height:1.8;
-}
-
-@media(max-width:768px){
-.equipe-cards{
-grid-template-columns:1fr;
-gap:50px;
-}
 }
 
 
@@ -1424,7 +1447,6 @@ gap:50px;
 <!-- ═══════════ NOSSA EQUIPE ═══════════ -->
 <section class="sec equipe" id="equipe">
   <div class="equipe-inner">
-
     <div class="equipe-header reveal">
       <div class="sec-label"><span>Excelência Jurídica</span></div>
       <h2 class="sec-h2">Nossa <em>Equipe</em></h2>
@@ -1432,43 +1454,93 @@ gap:50px;
       <p class="equipe-subtitle">Advogadas comprometidas com a defesa dos seus direitos, unindo rigor técnico, ética e atendimento humano.</p>
     </div>
 
-    <div class="equipe-cards">
-
-      <!-- Dyanna Lucena -->
+    <!-- SÓCIAS-FUNDADORAS -->
+    <div class="equipe-section-label reveal">
+      <span>Sócias-Fundadoras</span>
+    </div>
+    <div class="equipe-cards equipe-cards--socias">
       <div class="membro reveal">
         <div class="membro-foto-wrap">
           <div class="membro-foto-ring-outer"></div>
           <div class="membro-foto-ring"></div>
-          <!-- Substitua a div abaixo por: <img src="foto-dyana.jpg" alt="Dra. Dyana Lucena" class="membro-foto"> -->
-          <img src="dyanalucena.jpeg" alt="Dra. Dyana Lucena" class="membro-foto">
+          <img src="dyanalucena.jpeg" alt="Dra. Dyanna Lucena" class="membro-foto">
         </div>
         <p class="membro-nome">Dra. Dyanna Lucena</p>
         <p class="membro-oab">OAB/PE 58.367</p>
         <div class="membro-divider"></div>
         <p class="membro-cargo">
-          <strong>Sócia-Fundadora</strong>
-          Especialista em Direito Trabalhista<br />e Direito do Consumidor
+          <strong>Sócia-Fundadora</strong><br>
+          Especialista em Direito Trabalhista<br>e Direito do Consumidor.
         </p>
       </div>
 
-      <!-- Ana Cláudia Souza -->
       <div class="membro reveal">
         <div class="membro-foto-wrap">
           <div class="membro-foto-ring-outer"></div>
           <div class="membro-foto-ring"></div>
-          <!-- Substitua a div abaixo por: <img src="foto-anaclaudia.jpg" alt="Dra. Ana Cláudia Souza" class="membro-foto"> -->
           <img src="anaclaudia.jpeg" alt="Dra. Ana Cláudia Souza" class="membro-foto">
         </div>
-        <p class="membro-nome">Dra. Ana Cláudia Souza</p>
+        <p class="membro-nome">Dra. Ana Claudia Souza</p>
         <p class="membro-oab">OAB/PE 54.152</p>
         <div class="membro-divider"></div>
         <p class="membro-cargo">
-          <strong>Sócia-Fundadora</strong>
-          Especialista em Direito à Saúde<br />
+          <strong>Sócia-Fundadora</strong><br>
+          Especialista em Direito à Saúde, Direito Público e Direitos das Pessoas Autistas.
+        </p>
+      </div>
+    </div>
+
+    <!-- EQUIPE JURÍDICA -->
+    <div class="equipe-section-label reveal" style="margin-top: 70px;">
+      <span>EQUIPE JURÌDICA</span>
+    </div>
+    <div class="equipe-cards equipe-cards--associadas">
+      <div class="membro reveal">
+        <div class="membro-foto-wrap">
+          <div class="membro-foto-ring-outer"></div>
+          <div class="membro-foto-ring"></div>
+          <img src="camilarocha.jpeg" alt="Dra. Camila Rocha" class="membro-foto">
+        </div>
+        <p class="membro-nome">Dra. Camila Rocha</p>
+        <p class="membro-oab">OAB/PE 57.896</p>
+        <div class="membro-divider"></div>
+        <p class="membro-cargo">
+          <strong>Advogada</strong><br>
+          Especialista em Direito Previdenciário<br>e Direito à Família
         </p>
       </div>
 
+      <div class="membro reveal">
+        <div class="membro-foto-wrap">
+          <div class="membro-foto-ring-outer"></div>
+          <div class="membro-foto-ring"></div>
+          <img src="lainecaram.jpeg" alt="Dra. Laine Caram" class="membro-foto">
+        </div>
+        <p class="membro-nome">Dra. Laine Caram</p>
+        <p class="membro-oab">OAB/SP 355.988</p>
+        <div class="membro-divider"></div>
+        <p class="membro-cargo">
+          <strong>Advogada</strong><br>
+          Especialista em Direito à Saúde
+        </p>
+      </div>
+
+      <div class="membro reveal">
+        <div class="membro-foto-wrap">
+          <div class="membro-foto-ring-outer"></div>
+          <div class="membro-foto-ring"></div>
+          <img src="crislayne.jpeg" alt="Dra. Crislayne Barreto" class="membro-foto">
+        </div>
+        <p class="membro-nome">Dra. Crislayne Barreto</p>
+        <p class="membro-oab">OAB/PE 66.560</p>
+        <div class="membro-divider"></div>
+        <p class="membro-cargo">
+          <strong>Advogada</strong><br>
+          Especialista em Direito do Trabalho
+        </p>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -1712,7 +1784,6 @@ sections.forEach(s => navIO.observe(s));
   <a href="politica-de-privacidade.html">Política de Privacidade</a>.
   <button onclick="acceptCookies()">Aceitar</button>
   </div>
-  
   <style>
   #cookie-banner{
   position:fixed;
@@ -1752,6 +1823,54 @@ object-fit:cover;
 top:20px;
 left:20px;
 }
+  /* ── EQUIPE — novos estilos ── */
+  .equipe-section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .equipe-section-label::before,
+  .equipe-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-gold);
+  }
+  .equipe-section-label span {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold-d);
+    white-space: nowrap;
+  }
+  
+  /* Sócias: 2 colunas centralizadas */
+  .equipe-cards--socias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 80px;
+  }
+  
+  /* Associadas: 3 colunas — sem max-width para usar o container todo */
+  .equipe-cards--associadas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .equipe-cards--socias,
+    .equipe-cards--associadas {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      max-width: 100%;
+    }
+  }
   </style>
   
   <script>
